@@ -751,7 +751,23 @@ body {
         opacity: 1;
     }
     100% {
+        /* Улучшения для доступности */
+.secret-button:focus {
+    outline: 3px solid rgba(255,255,255,0.5);
+    outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .secret-front {
+        background: linear-gradient(45deg, #ff7b7b, #ffb8b8);
+    }
+    
+    .secret-back {
+        background: linear-gradient(45deg, #8a6dd1, #d8b8ff);
+    }
+}
         transform: translateY(100px) rotate(360deg);
         opacity: 0;
     }
+
 }
