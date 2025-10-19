@@ -1,0 +1,757 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 0;
+}
+
+/* Главный экран */
+#main {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.main-title {
+    font-size: 4rem;
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 20px;
+    animation: bounce 2s infinite;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.scroll-down {
+    font-size: 2rem;
+    animation: float 2s ease-in-out infinite;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Сообщение */
+#message {
+    background: #f8f9fa;
+}
+
+#message h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    color: #764ba2;
+}
+
+.message-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.message-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* Кнопка музыки */
+.music-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.music-button {
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #764ba2;
+    padding: 10px 15px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.music-button:hover {
+    background: #764ba2;
+    color: white;
+    transform: scale(1.05);
+}
+
+/* Галерея */
+#gallery {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+}
+
+#gallery h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    color: #333;
+    font-family: 'Dancing Script', cursive;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.photo-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.photo-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.photo-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.photo-card:hover img {
+    transform: scale(1.1);
+}
+
+.photo-card p {
+    padding: 15px;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin: 0;
+    font-size: 1.1rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 80%;
+    margin-top: 5%;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close:hover {
+    color: #764ba2;
+}
+
+#caption {
+    text-align: center;
+    color: white;
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
+/* Интерактивный раздел */
+#interactive {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    text-align: center;
+}
+
+#interactive h2 {
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 2.2rem;
+}
+
+.magic-button {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    border: none;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(255, 165, 0, 0.3);
+    font-weight: bold;
+}
+
+.magic-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(255, 165, 0, 0.5);
+}
+
+.effect-area {
+    margin-top: 50px;
+    min-height: 200px;
+    position: relative;
+}
+
+/* Пожелания */
+#wishes {
+    background: #f0f8ff;
+}
+
+#wishes h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.2rem;
+    color: #333;
+}
+
+.wishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.wish-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.wish-card:hover {
+    transform: translateY(-10px);
+}
+
+.wish-emoji {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.wish-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #764ba2;
+}
+
+/* Секретный раздел */
+#secret {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.secret-card {
+    width: 400px;
+    height: 500px;
+    perspective: 1000px;
+    margin: 0 auto;
+}
+
+.secret-front, .secret-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    transition: transform 0.8s;
+    overflow: hidden;
+}
+
+.secret-front {
+    background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+    color: #333;
+}
+
+.secret-back {
+    background: linear-gradient(45deg, #a18cd1, #fbc2eb);
+    color: white;
+    transform: rotateY(180deg);
+    justify-content: space-between;
+}
+
+.secret-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    padding: 10px;
+    width: 100%;
+}
+
+.secret-content h3 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.secret-content p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.secret-button {
+    background: rgba(255,255,255,0.9);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.secret-button:hover {
+    background: white;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.flipped .secret-front {
+    transform: rotateY(180deg);
+}
+
+.flipped .secret-back {
+    transform: rotateY(0deg);
+}
+
+/* Футер */
+.footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.footer p {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem !important;
+    margin-top: 20px;
+}
+
+/* Анимации */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -10px); }
+}
+
+@keyframes floatEmoji {
+    0% { 
+        transform: translateY(0) rotate(0deg); 
+        opacity: 1;
+    }
+    100% { 
+        transform: translateY(-100px) rotate(360deg); 
+        opacity: 0;
+    }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .message-content p {
+        font-size: 1.1rem;
+    }
+    
+    .wishes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .secret-card {
+        width: 90%;
+        height: 450px;
+    }
+    
+    .music-button {
+        font-size: 12px;
+        padding: 8px 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .secret-card {
+        height: 400px;
+    }
+    
+    .secret-content {
+        padding: 5px;
+    }
+    
+    .secret-content p {
+        font-size: 0.85rem;
+        margin-bottom: 10px;
+    }
+}
+.footer-note {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    font-style: italic;
+    opacity: 0.9;
+}
+
+.footer-note p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+/* Обновляем сетку для 6 карточек */
+.wishes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto 50px;
+}
+
+/* Дополнительные пожелания */
+.extra-wishes {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.extra-wishes h3 {
+    color: #764ba2;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    font-family: 'Dancing Script', cursive;
+}
+
+.funny-wishes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    text-align: left;
+}
+
+.funny-wishes p {
+    background: white;
+    padding: 12px 15px;
+    border-radius: 10px;
+    margin: 0;
+    font-size: 1rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.funny-wishes p:hover {
+    transform: translateX(5px);
+    background: #f8f9fa;
+}
+
+/* Адаптивность для новых элементов */
+@media (max-width: 768px) {
+    .wishes-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .funny-wishes {
+        grid-template-columns: 1fr;
+    }
+    
+    .extra-wishes {
+        padding: 20px;
+        margin: 0 10px;
+    }
+}
+/* Виртуальный торт */
+#virtual-cake {
+    background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+}
+
+.cake-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+/* Целый торт */
+.cake {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    left: 50px;
+    top: 50px;
+    transition: transform 0.5s ease;
+}
+
+.cake:hover {
+    transform: scale(1.05);
+}
+
+.cake-top {
+    position: absolute;
+    width: 220px;
+    height: 40px;
+    background: #ff6b88;
+    border-radius: 50%;
+    top: 0;
+    left: -10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.cake-middle {
+    position: absolute;
+    width: 180px;
+    height: 50px;
+    background: #ff8ea1;
+    top: 30px;
+    left: 10px;
+    border-radius: 10px 10px 0 0;
+}
+
+.cake-bottom {
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    background: #ff4d6d;
+    top: 70px;
+    left: 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Свечка */
+.candle {
+    position: absolute;
+    width: 10px;
+    height: 30px;
+    background: white;
+    top: -25px;
+    left: 95px;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+.flame {
+    position: absolute;
+    width: 15px;
+    height: 25px;
+    background: #ff9500;
+    top: -20px;
+    left: -2.5px;
+    border-radius: 50% 50% 20% 20%;
+    animation: flicker 1.5s infinite alternate;
+    box-shadow: 0 0 20px #ff9500;
+}
+
+@keyframes flicker {
+    0%, 100% { transform: scaleY(1) translateY(0); opacity: 0.8; }
+    50% { transform: scaleY(1.1) translateY(-2px); opacity: 1; }
+}
+
+/* Украшения */
+.decoration {
+    position: absolute;
+    font-size: 20px;
+    z-index: 3;
+    animation: float 3s ease-in-out infinite;
+}
+
+.decoration-1 {
+    top: 10px;
+    left: 30px;
+    animation-delay: 0s;
+}
+
+.decoration-2 {
+    top: 15px;
+    left: 100px;
+    animation-delay: 1s;
+}
+
+.decoration-3 {
+    top: 8px;
+    left: 170px;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* Разрезанный торт (изначально скрыт) */
+.cake-cut {
+    display: none;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+}
+
+.cake-piece {
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    top: 50px;
+    transition: transform 1s ease;
+}
+
+.piece-left {
+    left: 50px;
+}
+
+.piece-right {
+    left: 150px;
+}
+
+.cake-cut .cake-top {
+    width: 110px;
+    left: -5px;
+}
+
+.cake-cut .cake-middle {
+    width: 90px;
+    left: 5px;
+}
+
+.cake-cut .cake-bottom {
+    width: 100px;
+}
+
+.cake-message {
+    position: absolute;
+    top: 220px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #d63384;
+    opacity: 0;
+    animation: fadeInUp 1s ease 1s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+/* Инструкция */
+.cake-instruction {
+    margin-top: 30px;
+    text-align: center;
+    font-style: italic;
+    color: #666;
+}
+
+/* Анимация разрезания */
+.cut-animation .piece-left {
+    transform: rotate(-15deg) translateX(-10px);
+}
+
+.cut-animation .piece-right {
+    transform: rotate(15deg) translateX(10px);
+}
+
+/* Конфетти для торта */
+.cake-confetti {
+    position: absolute;
+    pointer-events: none;
+    animation: cakeConfettiFall 3s ease-in forwards;
+}
+
+@keyframes cakeConfettiFall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100px) rotate(360deg);
+        opacity: 0;
+    }
+}
